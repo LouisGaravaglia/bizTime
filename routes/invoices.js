@@ -59,15 +59,45 @@ router.post("/", async (req, res, next) => {
     }
 })
 
+    // Updates an invoice.
+
+    // If invoice cannot be found, returns a 404.
+
+    // Needs to be passed in a JSON body of {amt, paid}
+
+    //     If paying unpaid invoice: sets paid_date to today
+    //     If un-paying: sets paid_date to null
+    //     Else: keep current paid_date
+
+    // Returns: {invoice: {id, comp_code, amt, paid, add_date, paid_date}}
+
 router.put("/:id", async (req, res, next) => {
     try {
-        let {amt} = req.body;
-        let id = req.params.id;
-        const invoice = await db.query(`SELECT * FROM invoices WHERE id = $1`, [id]);
-        if (invoice.rows.length === 0) {
+        let amt;
+        let paid;
+        let paidDate = new Date();
+        let result;
+        let nullDate = null;
+        if(req.body.amt){
+            amt = req.body.amt;
+        }
+        if(req.body.paid){
+            paid = req.body.paid;
+        }
+        const id = req.params.id;
+        const invoice = await db.query(`SELECT paid, paid_date FROM invoices WHERE id = $1`, [id]);
+        if(paid === true) {
+            result = await db.query(`UPDATE invoices SET amt=$1, paid=$3, paid_date=$4 WHERE id = $2 RETURNING *`, [amt, id, paid, paidDate]);
+        } else {
+            if(invoice.rows[0].paid === true) {
+                result = await db.query(`UPDATE invoices SET amt=$1, paid=$3, paid_date=$4 WHERE id = $2 RETURNING *`, [amt, id, paid, nullDate]);
+            } else {
+                result = await db.query(`UPDATE invoices SET amt=$1, paid=$3 WHERE id = $2 RETURNING *`, [amt, id, paid]);
+            }
+        }
+        if (result.rows.length === 0) {
             throw new ExpressError(`No such invoice with the id of: ${id}`, 404);
         }
-        const result = await db.query(`UPDATE invoices SET amt=$1 WHERE id = $2 RETURNING *`, [amt, id]);
         return res.json({invoice: result.rows[0]})
     } catch(e) {
         return next(e);
