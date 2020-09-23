@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1600832594259" clover="3.2.0">
-  <project timestamp="1600832594259" name="All files">
-    <metrics statements="155" coveredstatements="58" conditionals="28" coveredconditionals="2" methods="16" coveredmethods="2" elements="199" coveredelements="62" complexity="0" loc="155" ncloc="155" packages="2" files="6" classes="6"/>
+<coverage generated="1600836726905" clover="3.2.0">
+  <project timestamp="1600836726905" name="All files">
+    <metrics statements="155" coveredstatements="75" conditionals="28" coveredconditionals="5" methods="16" coveredmethods="5" elements="199" coveredelements="85" complexity="0" loc="155" ncloc="155" packages="2" files="6" classes="6"/>
     <package name="pg_relationships">
       <metrics statements="29" coveredstatements="20" conditionals="4" coveredconditionals="1" methods="3" coveredmethods="0"/>
       <file name="app.js" path="/Users/Louieg3/Documents/WEB DEVELOPMENT/Springboard/Projects/Section_35/pg_relationships/app.js">
@@ -44,9 +44,9 @@
       </file>
     </package>
     <package name="pg_relationships.routes">
-      <metrics statements="126" coveredstatements="38" conditionals="24" coveredconditionals="1" methods="13" coveredmethods="2"/>
+      <metrics statements="126" coveredstatements="55" conditionals="24" coveredconditionals="4" methods="13" coveredmethods="5"/>
       <file name="companies.js" path="/Users/Louieg3/Documents/WEB DEVELOPMENT/Springboard/Projects/Section_35/pg_relationships/routes/companies.js">
-        <metrics statements="45" coveredstatements="19" conditionals="8" coveredconditionals="1" methods="5" coveredmethods="2"/>
+        <metrics statements="45" coveredstatements="36" conditionals="8" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -58,38 +58,38 @@
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="59" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
         <line num="68" count="1" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
         <line num="82" count="1" type="stmt"/>
       </file>

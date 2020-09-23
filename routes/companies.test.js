@@ -25,13 +25,19 @@ describe("GET /companies", () => {
 })
 
 describe("GET /companies/:id", () => {
-    test("GET info about a single company", async () => {
+    test("GET info about Apple", async () => {
         const res = await request(app).get('/companies/apple');
         expect(res.statusCode).toBe(200);
         expect(res.body.company.code).toEqual("apple");
         expect(res.body.company.name).toEqual("Apple Computer");
         expect(res.body.company.description).toEqual("Maker of OSX.");
-        expect(res.body.company.i_name).toEqual("Tech Company");
+    })
+    test("GET info about IBM", async () => {
+        const res = await request(app).get('/companies/ibm');
+        expect(res.statusCode).toBe(200);
+        expect(res.body.company.code).toEqual("ibm");
+        expect(res.body.company.name).toEqual("IBM");
+        expect(res.body.company.description).toEqual("Big blue.");
     })
 })
 
@@ -56,6 +62,15 @@ describe("PUT /companies/:id", () => {
         expect(res.body.company.description).toEqual("Computer Maker");
         const resettingApple = await request(app).put('/companies/appl').send({code: "apple", name: "Apple Computer", description: "Maker of OSX."});
 
+    })
+})
+
+describe("DELETE /companies/:id", () => {
+    test("DELETE a single company from the database", async () => {
+        const res = await request(app).delete('/companies/ibm');
+        expect(res.statusCode).toBe(200);
+        expect(res.body).toMatchObject({ status: 'deleted' });
+        const resettingIbm = await request(app).post('/companies').send({name: "IBM", description: "Big blue."});
     })
 })
 
