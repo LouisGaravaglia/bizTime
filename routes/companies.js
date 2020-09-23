@@ -13,10 +13,21 @@ router.get("/", async (req, res, next) => {
     }
 })
 
+
+
 router.get("/:code", async (req, res, next) => {
     try {
         const code = req.params.code;
-        const result = await db.query(`SELECT * FROM companies WHERE code=$1`, [code]);
+        // const result = await db.query(`SELECT * FROM companies WHERE code=$1`, [code]);
+        const result = await db.query(`
+        SELECT c.code, c.name, c.description, i.name as i_name
+        FROM companies AS c 
+        LEFT JOIN company_industry AS c_i
+        ON c.code = c_i.c_code
+        LEFT JOIN industries AS i
+        ON c_i.i_code = i.ind_code
+        WHERE c.code = $1 
+        `, [code])
         if(result.rows.length === 0) {
             throw new ExpressError(`Company not found with the code: ${code}`, 404)
         }
@@ -66,5 +77,6 @@ router.delete("/:code", async (req, res, next) => {
         return next(e);
     }
 })
+
 
 module.exports = router;

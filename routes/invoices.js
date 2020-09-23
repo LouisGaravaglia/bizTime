@@ -59,18 +59,6 @@ router.post("/", async (req, res, next) => {
     }
 })
 
-    // Updates an invoice.
-
-    // If invoice cannot be found, returns a 404.
-
-    // Needs to be passed in a JSON body of {amt, paid}
-
-    //     If paying unpaid invoice: sets paid_date to today
-    //     If un-paying: sets paid_date to null
-    //     Else: keep current paid_date
-
-    // Returns: {invoice: {id, comp_code, amt, paid, add_date, paid_date}}
-
 router.put("/:id", async (req, res, next) => {
     try {
         let amt;
