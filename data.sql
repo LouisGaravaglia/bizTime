@@ -1,4 +1,4 @@
-\c biztime
+\c biztime_test
 
 DROP TABLE IF EXISTS invoices;
 DROP TABLE IF EXISTS companies;
@@ -11,7 +11,7 @@ CREATE TABLE companies (
 
 CREATE TABLE invoices (
     id serial PRIMARY KEY,
-    comp_code text NOT NULL REFERENCES companies ON DELETE CASCADE,
+    comp_code text NOT NULL REFERENCES companies ON UPDATE CASCADE,
     amt float NOT NULL,
     paid boolean DEFAULT false NOT NULL,
     add_date date DEFAULT CURRENT_DATE NOT NULL,
@@ -26,8 +26,8 @@ CREATE TABLE industries (
 
 CREATE TABLE company_industry (
     id serial PRIMARY KEY,
-    c_code text NOT NULL REFERENCES companies ON DELETE CASCADE,
-    i_code text NOT NULL REFERENCES industries ON DELETE CASCADE
+    c_code text NOT NULL REFERENCES companies ON UPDATE CASCADE,
+    i_code text NOT NULL REFERENCES industries ON UPDATE CASCADE
 );
 
 
